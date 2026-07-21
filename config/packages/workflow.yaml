@@ -1,0 +1,40 @@
+framework:
+    workflows:
+        document:
+            type: state_machine
+
+            supports:
+                - App\Entity\Document
+
+            marking_store:
+                type: method
+                property: state
+
+            initial_marking: !php/const App\Entity\Document::STATE_DRAFT
+
+            places:
+                - !php/const App\Entity\Document::STATE_DRAFT
+                - !php/const App\Entity\Document::STATE_VALIDATED
+                - !php/const App\Entity\Document::STATE_SENT
+                - !php/const App\Entity\Document::STATE_COMPLETED
+                - !php/const App\Entity\Document::STATE_CANCELLED
+
+            transitions:
+                validate:
+                    from: !php/const App\Entity\Document::STATE_DRAFT
+                    to: !php/const App\Entity\Document::STATE_VALIDATED
+
+                send:
+                    from: !php/const App\Entity\Document::STATE_VALIDATED
+                    to: !php/const App\Entity\Document::STATE_SENT
+
+                complete:
+                    from: !php/const App\Entity\Document::STATE_SENT
+                    to: !php/const App\Entity\Document::STATE_COMPLETED
+
+                cancel:
+                    from:
+                        - !php/const App\Entity\Document::STATE_DRAFT
+                        - !php/const App\Entity\Document::STATE_VALIDATED
+                        - !php/const App\Entity\Document::STATE_SENT
+                    to: !php/const App\Entity\Document::STATE_CANCELLED
