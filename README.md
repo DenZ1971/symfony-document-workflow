@@ -1,5 +1,7 @@
 # SuperDemo
 
+[![CI](https://github.com/DenZ1971/symfony-document-workflow/actions/workflows/ci.yml/badge.svg)](https://github.com/DenZ1971/symfony-document-workflow/actions/workflows/ci.yml)
+
 ## About the project
 
 SuperDemo is a demonstration Symfony 6.4 project inspired by document management workflows used in modern business applications.
