@@ -226,7 +226,7 @@ final class DocumentController extends AbstractController
             'id' => $document->getId(),
             'number' => $document->getNumber(),
             'title' => $document->getTitle(),
-            'type' => $document->getType()?->value,
+            'type' => $document->getType()->value,
             'state' => $document->getState(),
             'customer' => [
                 'id' => $document->getCustomer()?->getId(),

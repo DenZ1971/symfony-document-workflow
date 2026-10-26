@@ -28,6 +28,7 @@ Main features:
 * MySQL 8
 * Symfony Workflow (State Machine)
 * PHPUnit 11
+* PHPStan 2
 * Docker & Docker Compose
 * REST API
 
@@ -355,5 +356,11 @@ All tests must pass successfully before submitting changes.
 
 ```
 php bin/phpunit
+```
+
+Run static analysis:
+
+```
+composer analyse
 ```
 
